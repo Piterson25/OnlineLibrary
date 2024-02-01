@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div class="book" th:if="${book != null}">
+        <div class="bookTitle" th:text="${book.title}"></div>
+        <img class="bookImage" th:if="${book.imageUrl != null}" th:src="${book.imageUrl}"
+             alt="Book Image" onerror="this.style.display='none'"/>
+        <div class="rating">
+                <span th:each="star : ${#numbers.sequence(1, 5)}">
+                    <span th:if="${star <= book.getAverageRating()}"
+                          class="star-icon filled">&#9733;</span>
+                    <span th:unless="${star <= book.getAverageRating()}"
+                          class="star-icon">&#9734;</span>
+                </span>
+            <span th:text="${book.getAverageRating()}"></span>
+        </div>
+        <form action="/confirmation" method="post">
+            <input type="hidden" name="bookId" th:value="${book.id}"/>
+            <button class="button" type="submit">Confirm Order</button>
+        </form>
+    </div>
+    <div class="book" th:if="${book == null}">
+        <p>Book not found!</p>
+    </div>
+</div>
+</body>
+</html>

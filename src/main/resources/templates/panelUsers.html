@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+
+    <div class="center">
+        <a class="button" th:href="@{'/user/add'}">Add User</a>
+        <div class="userList">
+            <div class="userItem" th:each="user : ${users}">
+                <div th:text="${user.username}"></div>
+                <div th:text="${user.email}"></div>
+                <div class="flex">
+                    <a class="button" th:href="@{'/user/edit/' + ${user.id}}">Edit</a>
+                    <a class="button" th:href="@{'/user/delete/' + ${user.id}}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

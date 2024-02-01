@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div class="center" th:if="${items.size() > 0}">
+        <div class="cartButtons">
+            <a class="button" th:href="@{'/cart/delete'}">Clear cart</a>
+            <form th:if="${items.size() > 0}" action="/confirmation" method="post">
+                <button class="button" type="submit">Confirm orders</button>
+            </form>
+        </div>
+        <h1>Your cart:</h1>
+        <div class="booksList">
+            <div class="bookItem" th:each="item: ${items}">
+                <div class="bookTitle" th:text="${item.title}"></div>
+                <img class="bookImage" th:if="${item.imageUrl != null}" th:src="${item.imageUrl}"
+                     alt="Book Image" onerror="this.style.display='none'"/>
+                <div class="rating">
+                <span th:each="star : ${#numbers.sequence(1, 5)}">
+                    <span th:if="${star <= item.averageRating}"
+                          class="star-icon filled">&#9733;</span>
+                    <span th:unless="${star <= item.averageRating}"
+                          class="star-icon">&#9734;</span>
+                </span>
+                    <span th:text="${item.averageRating}"></span>
+                </div>
+                <a class="button" th:href="@{'/cart/delete/' + ${item.id}}">Delete</a>
+                <a class="button" th:href="@{'/books/' + ${item.id}}">Details</a>
+            </div>
+        </div>
+    </div>
+    <div th:unless="${items.size() > 0}">
+        <div class="confirmed">Your cart is empty!</div>
+    </div>
+</div>
+</body>
+</html>

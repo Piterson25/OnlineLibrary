@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=library
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/library
+    depends_on:
+      - db
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

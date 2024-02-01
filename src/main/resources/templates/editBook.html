@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <h1 class="book">Edit Book</h1>
+    <form class="columnForm" method="post" th:action="@{'/books/edit/' + ${book.id}}">
+        <label for="title">Title:</label>
+        <input type="text" id="title" th:field="*{book.title}"/><br/>
+
+        <label for="imageUrl">Image URL:</label>
+        <input type="text" id="imageUrl" th:field="*{book.imageUrl}"/><br/>
+
+        <label for="description">Desc:</label>
+        <input type="text" id="description" th:field="*{book.description}"/><br/>
+
+        <label for="originalDate">Original date:</label>
+        <input type="text" id="originalDate" th:field="*{book.originalDate}"/><br/>
+
+        <label for="genres">Genres:</label>
+        <input type="text" id="genres" th:field="*{book.genres}"/><br/>
+
+        <label for="authors">Authors:</label>
+        <input type="text" id="authors" th:field="*{book.authors}"/><br/>
+
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" th:field="*{book.publisher}"/><br/>
+
+        <label for="publishYear">Publish Year:</label>
+        <input type="text" id="publishYear" th:field="*{book.publishYear}"/><br/>
+
+        <input type="hidden" th:field="*{book.ratings}"/>
+
+        <button class="button" type="submit">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>

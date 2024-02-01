@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+
+    <div class="commentList">
+        <div class="comment" th:each="comment : ${comments}">
+            <div class="commentData">
+                <p><strong th:text="${#temporals.format(comment.date, 'dd-MM-yyyy HH:mm:ss')}"></strong></p>
+                <p><strong th:text="${comment.author}"></strong></p>
+            </div>
+            <span class="commentText" th:text="${comment.text}"></span>
+            <div class="flex">
+                <a class="button" th:href="@{'/books/' + ${comment.bookId}}">Go to book</a>
+                <a class="button" th:href="@{'/comment/edit/' + ${comment.id}}">Edit</a>
+                <a class="button" th:href="@{'/comment/delete/' + ${comment.id}}">Delete</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

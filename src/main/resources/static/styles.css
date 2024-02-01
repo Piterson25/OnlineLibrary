@@ -1,0 +1,253 @@
+* {
+    font-family: "Sans Serif Collection", sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkgoldenrod;
+    color: white;
+    text-align: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    padding: 1rem 2rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+}
+
+.title:hover {
+    color: aliceblue;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.button {
+    background-color: cornflowerblue;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+.booksList {
+    margin: auto;
+    justify-content: center;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2rem;
+    grid-gap: 2rem;
+}
+
+.bookItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: beige;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    gap: 1rem;
+    width: 15rem;
+}
+
+.bookTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+    overflow-wrap: break-word;
+}
+
+.bookImage {
+    border-radius: 0.5rem;
+    max-width: 10rem;
+    height: auto;
+}
+
+.book {
+    text-align: center;
+    align-items: center;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    width: 50%;
+    gap: 1rem;
+}
+
+.cover {
+    grid-column: 1 / 2;
+}
+
+.desc {
+    grid-column: 2 / 3;
+}
+
+.comments {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    align-items: center;
+}
+
+span.validationError {
+    color: red;
+}
+
+input {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin: 0;
+    font-size: 1rem;
+}
+
+textarea {
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1rem;
+    resize: none;
+}
+
+select {
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    gap: 1rem;
+}
+
+.confirmed {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.columnForm {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.comment {
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentData {
+    display: flex;
+    gap: 1rem;
+}
+
+.commentText {
+    text-align: start;
+}
+
+.cartButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.panel {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.userList {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.userItem {
+    padding: 1rem;
+    background-color: beige;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+.commentList {
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.genres {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.borrow {
+    margin: 2rem;
+}

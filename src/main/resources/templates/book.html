@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div class="book" th:if="${book != null}">
+        <div class="cover">
+            <h1 th:text="${book.title}"></h1>
+            <img th:if="${book.imageUrl != null}" th:src="${book.imageUrl}"
+                 style="max-width: 200px; max-height: 400px;" alt="Book Image"
+                 onerror="this.style.display='none'"/>
+        </div>
+        <div class="desc">
+            <form class="borrow" th:if="${session.user != null}" th:action="@{'/add/' + ${book.id}}" method="post">
+                <p th:if="${book.ownerId != null and session.user.id == book.ownerId}">This book is already reserved by
+                    you.</p>
+                <p th:if="${book.ownerId != null and session.user.id != book.ownerId}">This book is already reserved by
+                    someone else.</p>
+                <button th:if="${book.ownerId == null} and ${!session.user.isAdmin()}" class="button" type="submit"
+                        th:text="Borrow"></button>
+            </form>
+            <div class="borrow" th:unless="${session.user != null}">
+                <a class="button" th:href="@{'/login'}" th:disabled="${true}">Borrow</a>
+            </div>
+            <span th:text="${book.description}"></span>
+            <p><strong>Original Date:</strong> <span th:text="${book.originalDate}"></span></p>
+            <p><strong>Genres:</strong>
+            <div class="genres" th:each="genre : ${book.genres}">
+                <a class="button" th:href="@{'/search?query=' + ${genre}}" th:text="${genre}"></a>
+            </div>
+            <p><strong>Authors:</strong>
+            <div class="authors" th:each="author : ${book.authors}">
+                <a class="button" th:href="@{'/search?query=' + ${author}}" th:text="${author}"></a>
+            </div>
+            <p><strong>Publisher:</strong> <span th:text="${book.publisher}"></span></p>
+            <p><strong>Publish Year:</strong> <span th:text="${book.publishYear}"></span></p>
+        </div>
+        <div class="comments">
+            <div class="ratings">
+                <div>
+                <span th:each="star : ${#numbers.sequence(1, 5)}">
+                <span th:if="${star <= book.getAverageRating()}"
+                      class="star-icon filled">&#9733;</span>
+                <span th:unless="${star <= book.getAverageRating()}"
+                      class="star-icon">&#9734;</span>
+                </span>
+                </div>
+                <span th:text="${book.getAverageRating()}"></span>
+                <p><strong>Ratings:</strong> <span th:text="${book.getNumberOfRatings()}"></span></p>
+            </div>
+
+            <form class="columnForm" th:action="@{'/rateBook/' + ${book.id}}" method="post">
+                <label for="ratingInput">(10 seconds delay) Enter your rating (1-5): </label>
+                <input type="number" id="ratingInput" name="rating" min="1" max="5" required/>
+                <button class="button" type="submit">Add Rating</button>
+            </form>
+
+            <form class="columnForm" th:action="@{'/comment/' + ${book.id}}" method="post">
+                <label>
+                    <textarea name="text" rows="4" cols="50" placeholder="Add a comment" required></textarea>
+                </label>
+                <button class="button" type="submit">Add Comment</button>
+            </form>
+
+            <div th:if="${book.comments.size()} > 0">
+                <h2>Comments:</h2>
+                <div class="comment" th:each="comment : ${book.comments}">
+                    <div class="commentData">
+                        <p><strong th:text="${#temporals.format(comment.date, 'dd-MM-yyyy HH:mm:ss')}"></strong></p>
+                        <p><strong th:text="${comment.author}"></strong></p>
+                    </div>
+                    <span class="commentText" th:text="${comment.text}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="book" th:if="${book == null}">
+        <p>Book not found!</p>
+    </div>
+</div>
+</body>
+</html>

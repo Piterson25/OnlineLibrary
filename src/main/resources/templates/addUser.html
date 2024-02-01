@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <h1 class="center">Add New User</h1>
+
+    <form class="columnForm" method="post" th:action="@{'/user/add'}">
+        <span class="validationError" th:if="${error}" th:text="${error}"></span>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required/><br/>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required/><br/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required/><br/>
+
+        <button class="button" type="submit">Add User</button>
+    </form>
+</div>
+</body>
+</html>

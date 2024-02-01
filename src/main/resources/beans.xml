@@ -1,0 +1,1087 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="b-1" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Lord of the Rings"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/71VjmMcE-rL._AC_UF1000,1000_QL80_.jpg"/>
+        <property name="description" value="Begin your journey into Middle-earth.
+A New Legend Begins on Prime Video, in The Lord of the Rings: The Rings of Power.
+
+This one-volume, paperback edition includes The Fellowship of the Ring, The Two Towers, and The Return of the King, together with the Appendices in full.
+
+Sauron, the Dark Lord, has gathered to him all the Rings of Power – the means by which he intends to rule Middle-earth. All he lacks in his plans for dominion is the One Ring – the ring that rules them all – which has fallen into the hands of the hobbit, Bilbo Baggins.
+
+In a sleepy village in the Shire, young Frodo Baggins finds himself faced with an immense task, as the Ring is entrusted to his care. He must leave his home and make a perilous journey across the realms of Middle-earth to the Crack of Doom, deep inside the territories of the Dark Lord. There he must destroy the Ring forever and foil the Dark Lord in his evil purpose."/>
+        <property name="originalDate" value="1954-07-29"/>
+        <property name="genres">
+            <list>
+                <value>Adventure</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.R.R. Tolkien</value>
+            </list>
+        </property>
+        <property name="publisher" value="Harper Collins Publ. UK"/>
+        <property name="publishYear" value="2022"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-2" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Hobbit, or There and back again"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/71k--OLmZKL._AC_UF1000,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="The Hobbit is the unforgettable story of Bilbo, a peace-loving hobbit, who embarks on a strange and magical adventure. A timeless classic. Bilbo Baggins enjoys a quiet and contented life, with no desire to travel far from the comforts of home; then one day the wizard Gandalf and a band of dwarves arrive unexpectedly and enlist his services - as a burglar - on a dangerous expedition to raid the treasure-hoard of Smaug the dragon. Bilbo's life is never to be the same again."/>
+        <property name="originalDate" value="1937-09-21"/>
+        <property name="genres">
+            <list>
+                <value>Adventure</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.R.R. Tolkien</value>
+            </list>
+        </property>
+        <property name="publisher" value="Harper Collins Publ. UK"/>
+        <property name="publishYear" value="2012"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-3" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the philosopher's stone"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81HteEu+D6L._AC_UF1000,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!"/>
+        <property name="originalDate" value="1997-06-26"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-4" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the chamber of secrets"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81gOJoEgVoL._SL1500_.jpg"/>
+        <property name="description"
+                  value="Harry Potter's summer has included the worst birthday ever, doomy warnings from a house-elf called Dobby, and rescue from the Dursleys by his friend Ron Weasley in a magical flying car! Back at Hogwarts School of Witchcraft and Wizardry for his second year, Harry hears strange whispers echo through empty corridors - and then the attacks start. Students are found as though turned to stone . Dobby's sinister predictions seem to be coming true."/>
+        <property name="originalDate" value="1998-07-02"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2021"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-5" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the prisoner of Azkaban"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/91VZqV0Cy8L._SL1500_.jpg"/>
+        <property name="description"
+                  value="When the Knight Bus crashes through the darkness and screeches to a halt in front of him, it's the start of another far from ordinary year at Hogwarts for Harry Potter. Sirius Black, escaped mass-murderer and follower of Lord Voldemort, is on the run - and they say he is coming after Harry. In his first ever Divination class, Professor Trelawney sees an omen of death in Harry's tea leaves . But perhaps most terrifying of all are the Dementors patrolling the school grounds, with their soul-sucking kiss."/>
+        <property name="originalDate" value="1999-07-08"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-6" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the goblet of fire"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/91OaFqznVCL._SL1500_.jpg"/>
+        <property name="description"
+                  value="The Triwizard Tournament is to be held at Hogwarts. Only wizards who are over seventeen are allowed to enter - but that doesn't stop Harry dreaming that he will win the competition. Then at Hallowe'en, when the Goblet of Fire makes its selection, Harry is amazed to find his name is one of those that the magical cup picks out. He will face death-defying tasks, dragons and Dark wizards, but with the help of his best friends, Ron and Hermione, he might just make it through - alive!"/>
+        <property name="originalDate" value="2000-07-08"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2017"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-7" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the Order of the Phoenix"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/813lOXWdSNL._SL1500_.jpg"/>
+        <property name="description"
+                  value="Harry Potter is furious that he is stuck at the Dursleys' house for the summer, when he suspects that Voldemort is gathering an army, and the wizarding authorities seem unwilling to do anything. Harry's so-called friends are trying to keep him in the dark. But he knows that Voldemort's forces can find him wherever he is; he could be attacked at any moment. Harry is finally rescued from Privet Drive by members of the Order of the Phoenix - a secret society first formed years ago to fight Voldemort - and discovers that maybe he is not alone in this battle after all."/>
+        <property name="originalDate" value="2003-06-21"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-8" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter and the half-blood prince"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81YvqjX4AdL._SL1500_.jpg"/>
+        <property name="description"
+                  value="When Dumbledore arrives at Privet Drive one summer night to collect Harry Potter, his wand hand is blackened and shrivelled, but he does not reveal why. Secrets and suspicion are spreading through the wizarding world, and Hogwarts itself is not safe. Harry is convinced that Malfoy bears the Dark Mark: there is a Death Eater amongst them. Harry will need powerful magic and true friends as he explores Voldemort's darkest secrets, and Dumbledore prepares him to face his destiny."/>
+        <property name="originalDate" value="2005-07-16"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-9" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Harry Potter nd the deathly hallows"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81W7uynFyWL._SL1500_.jpg"/>
+        <property name="description"
+                  value="As he climbs into the sidecar of Hagrid’s motorbike and takes to the skies, leaving Privet Drive for the last time, Harry Potter knows that Lord Voldemort and the Death Eaters are not far behind. The protective charm that has kept Harry safe until now is now broken, but he cannot keep hiding. The Dark Lord is breathing fear into everything Harry loves, and to stop him Harry will have to find and destroy the remaining Horcruxes. The final battle must begin – Harry must stand and face his enemy."/>
+        <property name="originalDate" value="2007-07-21"/>
+        <property name="genres">
+            <list>
+                <value>Children's Literature</value>
+                <value>Fantasy</value>
+                <value>Fiction</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>J.K. Rowling</value>
+            </list>
+        </property>
+        <property name="publisher" value="Bloomsbury Publishing UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-10" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="1984"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/71kxa1-0mfL._SL1500_.jpg"/>
+        <property name="description"
+                  value="Winston Smith toes the Party line, rewriting history to satisfy the demands of the Ministry of Truth. With each lie he writes, Winston grows to hate the Party that seeks power for its own sake and persecutes those who dare to commit thoughtcrimes. But as he starts to think for himself, Winston can’t escape the fact that Big Brother is always watching..."/>
+        <property name="originalDate" value="1949-06-08"/>
+        <property name="genres">
+            <list>
+                <value>Dystopia</value>
+                <value>Fiction</value>
+                <value>Poetry</value>
+                <value>Political</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>George Orwell</value>
+            </list>
+        </property>
+        <property name="publisher" value="Signet"/>
+        <property name="publishYear" value="1990"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-11" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Becoming"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/815rLjPo9KL._SL1500_.jpg"/>
+        <property name="description"
+                  value="Becoming is an autobiography by Michelle Obama, telling her life story, career, and experiences as the First Lady of the United States."/>
+        <property name="originalDate" value="2018-11-13"/>
+        <property name="genres">
+            <list>
+                <value>Biography</value>
+                <value>Memoir</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Michelle Obama</value>
+            </list>
+        </property>
+        <property name="publisher" value="Crown Publishing Group"/>
+        <property name="publishYear" value="2018"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-12" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Da Vinci code"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/71jDX01PzaL._SL1500_.jpg"/>
+        <property name="description" value="Harvard professor Robert Langdon receives an urgent late-night phone call while on business in Paris: the elderly curator of the Louvre has been brutally murdered inside the museum. Alongside the body, police have found a series of baffling codes.
+
+As Langdon and a gifted French cryptologist, Sophie Neveu, begin to sort through the bizarre riddles, they are stunned to find a trail that leads to the works of Leonardo Da Vinci - and suggests the answer to a mystery that stretches deep into the vault of history.
+
+Unless Langdon and Neveu can decipher the labyrinthine code and quickly assemble the pieces of the puzzle, a stunning historical truth will be lost forever..."/>
+        <property name="originalDate" value="2003-03-18"/>
+        <property name="genres">
+            <list>
+                <value>Fiction</value>
+                <value>Thriller</value>
+                <value>Mystery</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Dan Brown</value>
+            </list>
+        </property>
+        <property name="publisher" value="Ballantine Books"/>
+        <property name="publishYear" value="2009"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-13" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Elon Musk"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81Kaj5++6pL._SL1500_.jpg"/>
+        <property name="description"
+                  value="From the author of Steve Jobs and other bestselling biographies, this is the astonishingly intimate story of the most fascinating and controversial innovator of our era—a rule-breaking visionary who helped to lead the world into the era of electric vehicles, private space exploration, and artificial intelligence. Oh, and took over Twitter."/>
+        <property name="originalDate" value="2023-09-11"/>
+        <property name="genres">
+            <list>
+                <value>Biography</value>
+                <value>Business</value>
+                <value>Tech</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Walter Isaacson</value>
+            </list>
+        </property>
+        <property name="publisher" value="Simon and Schuster"/>
+        <property name="publishYear" value="2023"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="2"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="3"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-14" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Good Omens"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81E+wwGBhWL._SL1500_.jpg"/>
+        <property name="description"
+                  value="It's a predicament that Aziraphale, a somewhat fussy angel, and Crowley, a fast-living demon, now find themselves in. They've been living amongst Earth's mortals since The Beginning and, truth be told, have grown rather fond of the lifestyle and, in all honesty, are not actually looking forward to the coming Apocalypse."/>
+        <property name="originalDate" value="1990-05-10"/>
+        <property name="genres">
+            <list>
+                <value>Fantasy</value>
+                <value>Comedy</value>
+                <value>Supernatural</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Neil Gaiman</value>
+                <value>Terry Pratchett</value>
+            </list>
+        </property>
+        <property name="publisher" value="Transworld Publ. Ltd UK"/>
+        <property name="publishYear" value="2014"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-15" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Silent Patient"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/91lslnZ-btL._SL1500_.jpg"/>
+        <property name="description"
+                  value="The Silent Patient is a shocking psychological thriller of a woman's act of violence against her husband--and of the therapist obsessed with uncovering her motive."/>
+        <property name="originalDate" value="2019-02-05"/>
+        <property name="genres">
+            <list>
+                <value>Thriller</value>
+                <value>Psychological</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Alex Michaelides</value>
+            </list>
+        </property>
+        <property name="publisher" value="Celadon Books"/>
+        <property name="publishYear" value="2019"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-16" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="Educated"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81NwOj14S6L._SL1500_.jpg"/>
+        <property name="description"
+                  value="Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream society that there was no one to ensure the children received an education, and no one to intervene when one of Tara’s older brothers became violent. When another brother got himself into college, Tara decided to try a new kind of life. Her quest for knowledge transformed her, taking her over oceans and across continents, to Harvard and to Cambridge University. Only then would she wonder if she’d traveled too far, if there was still a way home."/>
+        <property name="originalDate" value="2018-02-20"/>
+        <property name="genres">
+            <list>
+                <value>Biography</value>
+                <value>Memoir</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Tara Westover</value>
+            </list>
+        </property>
+        <property name="publisher" value="Random House"/>
+        <property name="publishYear" value="2018"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-17" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Great Gatsby"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/61z0MrB6qOS._AC_UF894,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="The Great Gatsby is a novel that tells the story of a mysterious millionaire, Gatsby, and his obsessive love for Daisy Buchanan."/>
+        <property name="originalDate" value="1925-04-10"/>
+        <property name="genres">
+            <list>
+                <value>Fiction</value>
+                <value>Classic</value>
+                <value>Romance</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>F. Scott Fitzgerald</value>
+            </list>
+        </property>
+        <property name="publisher" value="Scribner"/>
+        <property name="publishYear" value="1925"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-18" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Hunger Games"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/614SwlZNtJL._AC_UF894,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="The Hunger Games is a series of novels telling the story of Katniss Everdeen, who participates in a brutal televised tournament where young people fight for survival."/>
+        <property name="originalDate" value="2008-09-14"/>
+        <property name="genres">
+            <list>
+                <value>Young Adult</value>
+                <value>Science Fiction</value>
+                <value>Dystopia</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>Suzanne Collins</value>
+            </list>
+        </property>
+        <property name="publisher" value="Scholastic Press"/>
+        <property name="publishYear" value="2008"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-19" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Fault in Our Stars"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81yAo5ElQlL._AC_UF1000,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="The Fault in Our Stars is a love story about two teenagers, Hazel Grace Lancaster and Augustus Waters, who meet in a support group for cancer patients."/>
+        <property name="originalDate" value="2012-01-10"/>
+        <property name="genres">
+            <list>
+                <value>Young Adult</value>
+                <value>Romance</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>John Green</value>
+            </list>
+        </property>
+        <property name="publisher" value="Dutton Books"/>
+        <property name="publishYear" value="2012"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="b-20" class="com.onlinelibrary.OnlineLibrary.domain.Book">
+        <property name="title" value="The Chronicles of Narnia: The Lion, the Witch and the Wardrobe"/>
+        <property name="imageUrl"
+                  value="https://m.media-amazon.com/images/I/81rJm9qk3HL._AC_UF894,1000_QL80_.jpg"/>
+        <property name="description"
+                  value="The Chronicles of Narnia: The Lion, the Witch and the Wardrobe is the first book in an epic fantasy series that follows the story of children traveling to the land of Narnia."/>
+        <property name="originalDate" value="1950-10-16"/>
+        <property name="genres">
+            <list>
+                <value>Fantasy</value>
+                <value>Children's Literature</value>
+            </list>
+        </property>
+        <property name="authors">
+            <list>
+                <value>C.S. Lewis</value>
+            </list>
+        </property>
+        <property name="publisher" value="Geoffrey Bles"/>
+        <property name="publishYear" value="1950"/>
+        <property name="ratings">
+            <list>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="5"/>
+                </bean>
+                <bean class="com.onlinelibrary.OnlineLibrary.domain.Rating">
+                    <constructor-arg value=""/>
+                    <constructor-arg value="2023-12-12T12:00:00"/>
+                    <constructor-arg value="4"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="r-1" class="com.onlinelibrary.OnlineLibrary.domain.Role">
+        <property name="name" value="admin"/>
+    </bean>
+
+    <bean id="r-2" class="com.onlinelibrary.OnlineLibrary.domain.Role">
+        <property name="name" value="user"/>
+    </bean>
+
+    <bean id="a-1" class="com.onlinelibrary.OnlineLibrary.domain.Admin">
+        <constructor-arg name="username" value="admin"/>
+        <constructor-arg name="email" value="admin@gmail.com"/>
+        <constructor-arg name="password" value="$2a$12$GTIvQA76xGpESxUVTLbq9.ap8Jvx9nobXQ9lVsKj0UWorz5QtCyne"/>
+    </bean>
+
+    <bean id="u-1" class="com.onlinelibrary.OnlineLibrary.domain.User">
+        <constructor-arg name="username" value="user"/>
+        <constructor-arg name="email" value="user@gmail.com"/>
+        <constructor-arg name="password" value="$2a$12$GTIvQA76xGpESxUVTLbq9.ap8Jvx9nobXQ9lVsKj0UWorz5QtCyne"/>
+    </bean>
+    <bean id="u-2" class="com.onlinelibrary.OnlineLibrary.domain.User">
+        <constructor-arg name="username" value="user2"/>
+        <constructor-arg name="email" value="user2@gmail.com"/>
+        <constructor-arg name="password" value="$2a$12$GTIvQA76xGpESxUVTLbq9.ap8Jvx9nobXQ9lVsKj0UWorz5QtCyne"/>
+    </bean>
+
+</beans>

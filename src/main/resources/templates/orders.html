@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div th:if="${orders.size() > 0}">
+        <h1 class="center">Your orders:</h1>
+        <div class="booksList">
+            <div class="bookItem" th:each="order: ${orders}">
+                <div class="bookTitle" th:text="${order.getBook().getTitle()}"></div>
+                <img class="bookImage" th:if="${order.getBook().imageUrl != null}" th:src="${order.getBook().imageUrl}"
+                     alt="Book Image" onerror="this.style.display='none'"/>
+                <p>Status: <span th:text="${order.status}"></span></p>
+                <p th:if="${order.borrowedDate != null}">Borrow date:
+                    <span th:text="${#temporals.format(order.borrowedDate, 'dd-MM-yyyy HH:mm:ss')}"></span>
+                </p>
+
+                <p th:if="${order.status == statuses.RETURNED}">Return date:
+                    <span th:text="${#temporals.format(order.returnedDate, 'dd-MM-yyyy HH:mm:ss')}"></span>
+                </p>
+
+                <form th:if="${order.status == statuses.BORROWED}" th:action="@{'/returnOrder/' + ${order.id}}" method="post">
+                    <button class="button" type="submit">Return</button>
+                </form>
+                <a class="button" th:href="@{'/books/' + ${order.getBook().getId()}}">Details</a>
+            </div>
+        </div>
+    </div>
+    <div th:unless="${orders.size() > 0}">
+        <div class="confirmed">You have no orders!</div>
+    </div>
+</div>
+</body>
+</html>

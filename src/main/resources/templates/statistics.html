@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div class="center">
+        <h1>Book Statistics</h1>
+
+        <div>
+            <h2>Top 10 Authors:</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Author</th>
+                    <th>Number of Books</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="author : ${topAuthors}">
+                    <td th:text="${author.key}"></td>
+                    <td th:text="${author.value}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Average Book Rating:</h2>
+            <p th:text="${averageRating}"></p>
+        </div>
+
+        <div>
+            <h2>Top Rated Books:</h2>
+            <div th:each="book : ${topRatedBooks}">
+                <span th:text="${book.title}"></span>
+                <span th:text="${' - ' + book.averageRating}"></span>
+            </div>
+        </div>
+
+        <div>
+            <h2>Top 5 Most Popular Genres:</h2>
+            <div th:each="genre : ${topGenres}">
+                <span th:text="${genre.key} + ' - ' + ${genre.value} + ' books'"></span>
+            </div>
+        </div>
+
+        <div>
+            <h2>Oldest Book:</h2>
+            <p th:if="${oldestBook != null}">
+                <span th:text="${oldestBook.title}"></span>
+                <span> (Published on: <span th:text="${oldestBook.originalDate}"></span>)</span>
+            </p>
+            <p th:if="${oldestBook == null}">No information available</p>
+        </div>
+
+        <div>
+            <h2>Newest Book:</h2>
+            <p th:if="${newestBook != null}">
+                <span th:text="${newestBook.title}"></span>
+                <span> (Published on: <span th:text="${newestBook.originalDate}"></span>)</span>
+            </p>
+            <p th:if="${newestBook == null}">No information available</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

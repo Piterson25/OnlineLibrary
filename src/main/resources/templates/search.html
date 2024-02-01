@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineLibrary</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <div class="center">
+        <form action="/search" method="GET">
+            <input class="search" type="text" name="query" placeholder="Search by title, authors, genres..."/>
+            <button class="button" type="submit">Search</button>
+            <select name="sortBy">
+                <option value="publisher">Publisher</option>
+                <option value="publishYear">Publish Year</option>
+                <option value="averageRating">Average Rating</option>
+                <option value="numberOfRatings">Number of Ratings</option>
+            </select>
+
+            <select name="sortOrder">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+        </form>
+
+        <h2>Search Results</h2>
+    </div>
+    <div class="booksList">
+        <div class="bookItem" th:each="book : ${foundBooks}">
+            <div class="bookTitle" th:text="${book.title}"></div>
+            <img class="bookImage" th:if="${book.imageUrl != null}" th:src="${book.imageUrl}"
+                 alt="Book Image" onerror="this.style.display='none'"/>
+            <div class="rating">
+                <span th:each="star : ${#numbers.sequence(1, 5)}">
+                    <span th:if="${star <= book.getAverageRating()}"
+                          class="star-icon filled">&#9733;</span>
+                    <span th:unless="${star <= book.getAverageRating()}"
+                          class="star-icon">&#9734;</span>
+                </span>
+                <span th:text="${book.getAverageRating()}"></span>
+            </div>
+            <a class="button" th:href="@{'/books/' + ${book.id}}">Details</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

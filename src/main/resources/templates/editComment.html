@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Comment</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div>
+    <nav>
+        <a class="title" th:href="@{'/'}">OnlineLibrary</a>
+        <div class="buttons" th:if="${session.user != null}">
+            <a class="button" th:if="${session.user.isAdmin()}" th:href="@{'/panel'}">Control Panel</a>
+            <span th:text="'Welcome, ' + ${session.user.username} + '!'"></span>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/cart'}">Cart</a>
+            <a class="button" th:unless="${session.user.isAdmin()}" th:href="@{'/orders'}">Orders</a>
+            <a class="button" th:href="@{'/profile'}">Profile</a>
+            <a class="button" th:href="@{'/logout'}">Logout</a>
+        </div>
+        <div class="buttons" th:unless="${session.user != null}">
+            <a class="button" th:href="@{'/login'}">Login</a>
+            <a class="button" th:href="@{'/register'}">Register</a>
+        </div>
+    </nav>
+    <h1 class="book">Edit Comment</h1>
+    <form class="columnForm" method="post" th:action="@{'/comment/edit/' + ${comment.id}}">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"
+               th:value="${#temporals.format(comment.date, 'yyyy-MM-dd')}" required/><br/>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time"
+               th:value="${#temporals.format(comment.date, 'HH:mm:ss')}" required/><br/>
+
+        <label for="author">Author:</label>
+        <select id="author" name="authorId">
+            <option th:each="user : ${users}" th:value="${user.id}" th:selected="${user.id eq comment.authorId}"
+                    th:text="${user.username}">
+            </option>
+        </select><br/>
+
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" rows="4" cols="50" th:field="*{comment.text}"
+                  placeholder="Add a comment"></textarea>
+
+        <button class="button" type="submit">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>
